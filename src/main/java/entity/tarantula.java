@@ -4,14 +4,15 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-
-import java.util.EnumSet;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.level.LevelAccessor;
 
 public class Tarantula extends Monster {
     // コンストラクタ
@@ -40,5 +41,25 @@ public class Tarantula extends Monster {
     @Override
     public String getTexturePath() {
         return "undergardens:textures/entity/tarantula.png"; // エンティティ見た目のファイルパス
+    }
+
+    // 経験値設定
+    @Override
+    protected int getExperienceReward(Player player) {
+        return 10; // タランチュラを倒したときに10経験値を獲得
+    }
+
+    // ドロップ品の設定
+    @Override
+    protected void dropCustomDeathLoot(DamageSource source, int lootingMultiplier, boolean recentlyHit) {
+        super.dropCustomDeathLoot(source, lootingMultiplier, recentlyHit);
+        
+        // 通常ドロップ
+        this.spawnAtLocation(new ItemStack(Items.STRING, 2 + this.random.nextInt(3))); // ドロップ品の紐（2-4個）
+
+        // レアドロップ（1/10の確率で蜘蛛の目をドロップ）
+        if (this.random.nextFloat() < 0.1F) {
+            this.spawnAtLocation(new ItemStack(Items.SPIDER_EYE, 1)); // 蜘蛛の目をドロップ
+        }
     }
 }
