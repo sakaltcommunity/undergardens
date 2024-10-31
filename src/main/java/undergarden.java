@@ -26,7 +26,7 @@ public class undergarden {
     public static final Biome UNDERSTONE_BIOME = UnderstoneBiome.createUnderstoneBiome();
 
     // アンダーストーン装備の定義
-    public static final Item UNDERSTONE_SWORD = new SwordItem(UnderstoneTiers.UNDERSTONE, 3, -2.4F, new Item.Properties());
+    public static final Item UNDERSTONE_SWORD = new SwordItem(UnderstoneTiers.UNDERSTONE, 7, -2.4F, new Item.Properties());
     public static final Item UNDERSTONE_PICKAXE = new PickaxeItem(UnderstoneTiers.UNDERSTONE, 1, -2.8F, new Item.Properties());
     // 次元やエンティティの登録
     public static void register() {
