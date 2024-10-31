@@ -17,6 +17,10 @@ public class undergarden {
     public static final EntityType<Tarantula> TARANTULA = EntityType.Builder.of(Tarantula::new, MobCategory.MONSTER)
         .sized(1.0F, 0.5F)  // サイズ設定
         .build("undergardens:tarantula");
+    // wib登録
+    public static final EntityType<Tarantula> WIB = EntityType.Builder.of(wib::new, MobCategory.MONSTER)
+        .sized(1.4F, 0.9F)  // サイズ設定
+        .build("undergardens:wib");
 
     // アンダーストーンブロックの定義
     public static final Block UNDER_STONE = new Block(BlockBehaviour.Properties.of(Blocks.STONE.defaultBlockState().getMaterial())
@@ -33,6 +37,9 @@ public class undergarden {
         // タランチュラエンティティの登録
         Registry.register(Registry.ENTITY_TYPE, new ResourceLocation("undergardens", "tarantula"), TARANTULA);
         System.out.println("タランチュラが登録されました");
+
+        Registry.register(Registry.ENTITY_TYPE, new ResourceLocation("undergardens", "wib"), WIB);
+        System.out.println("ウィブが登録されました");
 
         // アンダーストーンブロックの登録
         Registry.register(Registry.BLOCK, new ResourceLocation("undergardens", "under_stone"), UNDER_STONE);
