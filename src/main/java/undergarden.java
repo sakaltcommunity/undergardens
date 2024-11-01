@@ -18,7 +18,7 @@ public class undergarden {
         .sized(1.0F, 0.5F)  // サイズ設定
         .build("undergardens:tarantula");
     // wib登録
-    public static final EntityType<Tarantula> WIB = EntityType.Builder.of(wib::new, MobCategory.MONSTER)
+    public static final EntityType<wib> WIB = EntityType.Builder.of(wib::new, MobCategory.MONSTER)
         .sized(1.4F, 0.9F)  // サイズ設定
         .build("undergardens:wib");
 
