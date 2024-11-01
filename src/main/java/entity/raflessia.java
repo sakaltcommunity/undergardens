@@ -32,7 +32,7 @@ public class Rafflesia extends Monster {
     // 属性の登録
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-            .add(Attributes.MAX_HEALTH, 20.0D) // HP
-            .add(Attributes.ATTACK_DAMAGE, 3.0D); // 攻撃力
+            .add(Attributes.MAX_HEALTH, 16.0D) // HP
+            .add(Attributes.ATTACK_DAMAGE, 6.5D); // 攻撃力
     }
 }
