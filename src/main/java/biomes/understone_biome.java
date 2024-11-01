@@ -17,14 +17,16 @@ public class UnderstoneBiome {
             .addFeature(/* Add features here if needed */);
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder()
-            .addSpawn(MobCategory.WATER_CREATURE, 
-                new MobSpawnSettings.SpawnerData(undergardens.UNDER_COD.get(), 5, 1, 2)); // under_codをスポーンさせる
+            .addSpawn(MobCategory.MONSTER,
+                new MobSpawnSettings.SpawnerData(undergardens.TARANTULA.get(), 15, 2, 5)) // タランチュラのスポーン設定
+            .addSpawn(MobCategory.WATER_CREATURE,
+                new MobSpawnSettings.SpawnerData(undergardens.UNDER_COD.get(), 15, 2, 5)); // アンダーコッドのスポーン設定
 
         return new Biome.BiomeBuilder()
             .biomeCategory(BiomeCategory.NETHER)
             .depth(0)
             .scale(0)
-            .temperature(0.6F)
+            .temperature(0.4F)
             .downfall(0.0F)
             .biomeAmbience(ambienceBuilder.build())
             .generationSettings(generationBuilder.build())
